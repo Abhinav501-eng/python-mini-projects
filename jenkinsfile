@@ -1,0 +1,15 @@
+pipeline{
+    agent any
+    stages{
+        stage('Git clone'){
+          steps{
+            git branch: 'mastern', changelog: false, poll: false, url: 'https://github.com/Abhinav501-eng/python-mini-projects.git'
+          }
+        }
+        stage('code compile'){
+            steps{
+                sh 'python test'
+            }
+        }
+    }
+}
